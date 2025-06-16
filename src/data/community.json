@@ -1,0 +1,28 @@
+{
+  "communities": [
+      {
+      "id": "mercado-comunidad",
+      "name": "Mercado Cominidad",
+      "title": "Bienvenido a la comunidad Mercado Comunidad",
+      "description": "Todos los productos incluyen información de contacto directo con el vendedor",
+      "phone": "+56 9 1234 5678",
+      "email": "contacto@mercadocomunidad.cl"
+    },
+    {
+      "id": "tempo-mackenna",
+      "name": "Tempo Mackenna",
+      "title": "Bienvenido a la comunidad Tempo Mackenna",
+      "description": "Todos los productos incluyen información de contacto directo con el vendedor",
+      "phone": "+56 9 1234 5678",
+      "email": "admin@tempomackenna.cl"
+    },
+    {
+      "id": "la-florida",
+      "name": "La Florida",
+      "title": "Bienvenido a la comunidad de La Florida",
+      "description": "Crea tu tienda y comienza a vender!",
+      "phone": "+56 9 1234 1111",
+      "email": "admin@laflorida.cl"
+    }
+  ]
+}

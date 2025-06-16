@@ -1,0 +1,217 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Llaveros con onda mediano!",
+      "description": "Llaveros con con onda pixel art, hechos a mano.",
+      "longDescription": "En nuestra tienda de pixel art hecho a mano, creamos piezas únicas y llenas de color especialmente pensadas para niños y fanáticos del arte retro. Nos especializamos en diseños de personajes queridos como Peppa Pig, Snoopy, personajes de anime y también realizamos piezas personalizadas a pedido. Cada obra combina creatividad y dedicación, llevando la magia del pixel art a tu mundo.",
+      "price": 600,
+      "images": ["https://res.cloudinary.com/dnw6ayvaf/image/upload/e_background_removal/b_rgb:FFFFFF/f_png,e_improve,e_sharpen/v1747504056/2_pdtt3o.jpg"
+      ],
+      "phone": "",
+      "storeName": "Ju-Pixel",
+      "storeDNI": "1-K",
+      "storeLogo": "https://res.cloudinary.com/dnw6ayvaf/image/upload/v1747505641/logo_m1wehq.png",
+      "facebookLink": "",
+      "instagramLink": "",
+      "categoria": "Regalos",
+      "id_community": "tempo-mackenna",
+       "id_store": "ju_pixel",
+       "email": "jupixel@gmail.com"
+    },
+    {
+      "id": 2,
+      "title": "Llaveros con onda pequeño!",
+      "description": "Llaveros con con onda pixel art, hechos a mano.",
+      "longDescription": "En nuestra tienda de pixel art hecho a mano, creamos piezas únicas y llenas de color especialmente pensadas para niños y fanáticos del arte retro. Nos especializamos en diseños de personajes queridos como Peppa Pig, Snoopy, personajes de anime y también realizamos piezas personalizadas a pedido. Cada obra combina creatividad y dedicación, llevando la magia del pixel art a tu mundo.",
+      "price": 300,
+      "images": [
+"https://res.cloudinary.com/dnw6ayvaf/image/upload/e_background_removal/b_rgb:FFFFFF/f_png,e_improve/v1747504055/1_bydjbf.jpg",        "https://res.cloudinary.com/dnw6ayvaf/image/upload/e_background_removal/b_rgb:FFFFFF/f_png,e_improve,e_sharpen/v1747504056/3_ehqghx.jpg",
+"https://res.cloudinary.com/dnw6ayvaf/image/upload/e_background_removal/b_rgb:FFFFFF/f_png,e_improve,e_sharpen/v1747504055/7_zwcncj.jpg",        "https://res.cloudinary.com/dnw6ayvaf/image/upload/e_background_removal/b_rgb:FFFFFF/f_png,e_improve,e_sharpen/v1747504055/4_c8vfnd.jpg"
+      ],
+      "phone": "",
+      "storeName": "Ju-Pixel",
+      "storeDNI": "1-K",
+       "storeLogo": "https://res.cloudinary.com/dnw6ayvaf/image/upload/v1747505641/logo_m1wehq.png",
+      "facebookLink": "",
+      "instagramLink": "",
+      "categoria": "Regalos",
+      "id_community": "tempo-mackenna",
+       "id_store": "ju_pixel",
+       "email": "jupixel@gmail.com"
+    },
+    {
+      "id": 3,
+      "title": "Llaveros con onda grande!",
+      "description": "Llaveros con con onda pixel art, hechos a mano.",
+      "longDescription": "En nuestra tienda de pixel art hecho a mano, creamos piezas únicas y llenas de color especialmente pensadas para niños y fanáticos del arte retro. Nos especializamos en diseños de personajes queridos como Peppa Pig, Snoopy, personajes de anime y también realizamos piezas personalizadas a pedido. Cada obra combina creatividad y dedicación, llevando la magia del pixel art a tu mundo.",
+      "price": 1000,
+      "images": [
+"https://res.cloudinary.com/dnw6ayvaf/image/upload/e_background_removal/b_rgb:FFFFFF/f_png,e_improve,e_sharpen/v1747504055/5_l4wuan.jpg",        "https://res.cloudinary.com/dnw6ayvaf/image/upload/e_background_removal/b_rgb:FFFFFF/f_png,e_improve,e_sharpen/v1747504055/6_czgwru.jpg",
+"https://res.cloudinary.com/dnw6ayvaf/image/upload/e_background_removal/b_rgb:FFFFFF/f_png,e_improve,e_sharpen/v1747504055/5_l4wuan.jpg"
+      ],
+      "phone": "",
+      "storeName": "Ju-Pixel",
+      "storeDNI": "1-K",
+       "storeLogo": "https://res.cloudinary.com/dnw6ayvaf/image/upload/v1747505641/logo_m1wehq.png",
+      "facebookLink": "",
+      "instagramLink": "",
+      "categoria": "Regalos",
+      "id_community": "tempo-mackenna",
+       "id_store": "ju_pixel",
+       "email": "jupixel@gmail.com"
+    },
+    {
+      "id": 4,
+      "title": "Pastelería Artesanal",
+      "description": "Tortas y pasteles personalizados para toda ocasión",
+      "longDescription": "Elaboramos tortas y pasteles artesanales con ingredientes de primera calidad. Especialidad en decoración personalizada y sabores únicos. Hacemos envíos a domicilio y aceptamos pedidos con 48 horas de anticipación.",
+      "price": 35000,
+      "images": [
+        "https://images.pexels.com/photos/291528/pexels-photo-291528.jpeg",
+        "https://images.pexels.com/photos/1721932/pexels-photo-1721932.jpeg",
+        "https://images.pexels.com/photos/2144112/pexels-photo-2144112.jpeg"
+      ],
+      "phone": "+56 9 1357 2468",
+      "storeName": "Dulces Momentos",
+      "storeDNI": "79.876.543-7",
+      "storeLogo": "https://images.pexels.com/photos/291528/pexels-photo-291528.jpeg",
+      "facebookLink": "https://facebook.com/dulcesmomentos",
+      "instagramLink": "https://instagram.com/dulcesmomentos",
+      "categoria": "Alimentos",
+      "id_community": "la-florida",
+       "id_store": "Dulces-Momentos",
+       "email": "mail@gmail.com"
+    },
+    {
+      "id": 5,
+      "title": "Servicio de Limpieza",
+      "description": "Limpieza profesional de hogares y oficinas",
+      "longDescription": "Servicio de limpieza profesional con personal capacitado y productos de calidad. Ofrecemos limpieza regular, profunda y post-construcción. Flexibilidad horaria y presupuestos personalizados.",
+      "price": 30000,
+      "images": [
+        "https://images.pexels.com/photos/4239091/pexels-photo-4239091.jpeg",
+        "https://images.pexels.com/photos/4239146/pexels-photo-4239146.jpeg",
+        "https://images.pexels.com/photos/4239036/pexels-photo-4239036.jpeg"
+      ],
+      "phone": "+56 9 3698 1470",
+      "storeName": "Limpieza Express",
+      "storeDNI": "80.987.654-6",
+      "storeLogo": "https://images.pexels.com/photos/4239091/pexels-photo-4239091.jpeg",
+      "categoria": "Servicios",
+      "id_community": "la-florida",
+        "id_store": "Dulces-Momentos",
+       "email": "mail@gmail.com"
+    },
+    {
+      "id": 6,
+      "title": "Frutos Secos a Granel",
+      "description": "Variedad de frutos secos frescos y de calidad premium",
+      "longDescription": "Ofrecemos una amplia selección de frutos secos de primera calidad. Almendras, nueces, castañas de cajú, pistachos y más. Venta por kilo o en packs personalizados. Todos nuestros productos son frescos y de origen certificado.",
+      "price": 2000,
+      "images": [
+        "https://images.pexels.com/photos/1295572/pexels-photo-1295572.jpeg",
+        "https://images.pexels.com/photos/4033325/pexels-photo-4033325.jpeg",
+        "https://images.pexels.com/photos/1367242/pexels-photo-1367242.jpeg"
+      ],
+      "phone": "+56 9 1234 1111",
+      "storeName": "Frutos del Valle",
+      "storeDNI": "82.109.876-4",
+      "storeLogo": "https://images.pexels.com/photos/1295572/pexels-photo-1295572.jpeg",
+      "facebookLink": "https://facebook.com/frutosdelvalle",
+      "instagramLink": "https://instagram.com/frutosdelvalle",
+      "categoria": "Alimentos",
+      "id_community": "la-florida",
+        "id_store": "Dulces-Momentos",
+       "email": "mail@gmail.com"
+    },
+    {
+      "id": 7,
+      "title": "Reparación de Bicicletas",
+      "description": "Servicio técnico especializado en todo tipo de bicicletas",
+      "longDescription": "Taller especializado en reparación y mantenimiento de bicicletas de todas las marcas y modelos. Realizamos ajustes, cambio de piezas, mantención preventiva y reparaciones mayores. Trabajo garantizado y precios competitivos.",
+      "price": 15000,
+      "images": [
+        "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg",
+        "https://images.pexels.com/photos/5465247/pexels-photo-5465247.jpeg",
+        "https://images.pexels.com/photos/5465240/pexels-photo-5465240.jpeg"
+      ],
+      "phone": "+56 9 8765 9999",
+      "storeName": "Bike Service",
+      "storeDNI": "83.210.987-3",
+      "storeLogo": "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg",
+      "facebookLink": "https://facebook.com/bikeservice",
+      "instagramLink": "https://instagram.com/bikeservice",
+      "categoria": "Servicios",
+      "id_community": "la-florida",
+        "id_store": "Bike-Service",
+       "email": "mail@gmail.com"
+    },
+    {
+      "id": 8,
+      "title": "Verduras Orgánicas",
+      "description": "Verduras frescas cultivadas sin pesticidas",
+      "longDescription": "Vendemos verduras orgánicas cultivadas en nuestra huerta familiar. Disponemos de lechugas, tomates, zanahorias, acelgas y más, según la temporada. Productos frescos cosechados el mismo día de la entrega.",
+      "price": 1500,
+      "images": [
+        "https://images.pexels.com/photos/1458694/pexels-photo-1458694.jpeg",
+        "https://images.pexels.com/photos/2255935/pexels-photo-2255935.jpeg",
+        "https://images.pexels.com/photos/2751755/pexels-photo-2751755.jpeg"
+      ],
+      "phone": "+56 9 7536 8888",
+      "storeName": "Huerta Orgánica",
+      "storeDNI": "84.321.098-2",
+      "storeLogo": "https://images.pexels.com/photos/1458694/pexels-photo-1458694.jpeg",
+      "facebookLink": "https://facebook.com/huertaorganica",
+      "instagramLink": "https://instagram.com/huertaorganica",
+      "categoria": "Alimentos",
+      "id_community": "la-florida",
+        "id_store": "Dulces-Momentos",
+       "email": "mail@gmail.com"
+    },
+    {
+      "id": 9,
+      "title": "Clases de Guitarra",
+      "description": "Aprende guitarra con profesor experimentado",
+      "longDescription": "Clases personalizadas de guitarra para principiantes y nivel intermedio. Aprende teoría musical, técnicas de interpretación y tus canciones favoritas. Metodología práctica y didáctica. Horarios flexibles.",
+      "price": 20000,
+      "images": [
+        "https://images.pexels.com/photos/1407322/pexels-photo-1407322.jpeg",
+        "https://images.pexels.com/photos/1656415/pexels-photo-1656415.jpeg",
+        "https://images.pexels.com/photos/1010519/pexels-photo-1010519.jpeg"
+      ],
+      "phone": "+56 9 6543 7777",
+      "storeName": "Música Viva",
+      "storeDNI": "85.432.109-1",
+      "storeLogo": "https://images.pexels.com/photos/1407322/pexels-photo-1407322.jpeg",
+      "facebookLink": "https://facebook.com/musicaviva",
+      "instagramLink": "https://instagram.com/musicaviva",
+      "categoria": "Educación",
+      "id_community": "la-florida",
+        "id_store": "Dulces-Momentos",
+       "email": "mail@gmail.com"
+    },
+    {
+      "id": 10,
+      "title": "Peluquería a Domicilio",
+      "description": "Servicio de peluquería profesional en tu hogar",
+      "longDescription": "Ofrecemos servicios completos de peluquería a domicilio: corte, tintura, peinados, tratamientos capilares y más. Atendemos a toda la familia. Productos de primera calidad y atención personalizada.",
+      "price": 12000,
+      "images": [
+        "https://images.pexels.com/photos/3993444/pexels-photo-3993444.jpeg",
+        "https://images.pexels.com/photos/3992874/pexels-photo-3992874.jpeg",
+        "https://images.pexels.com/photos/3993324/pexels-photo-3993324.jpeg"
+      ],
+      "phone": "+56 9 8765 6666",
+      "storeName": "Beauty Home",
+      "storeDNI": "86.543.210-0",
+      "storeLogo": "https://images.pexels.com/photos/3993444/pexels-photo-3993444.jpeg",
+      "facebookLink": "https://facebook.com/beautyhome",
+      "instagramLink": "https://instagram.com/beautyhome",
+      "categoria": "Belleza",
+      "id_community": "la-florida",
+       "id_store": "Dulces-Momentos",
+       "email": "mail@gmail.com"
+    }
+  ]
+}

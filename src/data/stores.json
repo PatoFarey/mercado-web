@@ -1,0 +1,33 @@
+{
+  "stores": [
+      {
+      "id": "ju_pixel",
+      "name": "Ju-Pixel",
+      "title": "Bienvenido a mi tienda de pixel art ! Ju-Pixel",
+      "description": "Hechos a mano y a pedido",
+      "phone": "",
+      "email": "jupixel@gmail.com",
+      "communities": ["tempo-mackenna","mercado-comunidad"]
+    },
+    {
+      "id": "muebles-elegantes",
+      "name": "Muebles Elegantes",
+      "title": "Bienvenido a Muebles Elegantes",
+      "description": "Todos los productos incluyen información de contacto directo con el vendedor",
+      "phone": "+56 9 1234 5678",
+      "email": "admin@tempomackenna.cl",
+      "communities": ["mercado-comunidad"]
+  
+    },
+    {
+      "id": "Jardines-Perfectos",
+      "name": "Jardines Perfectos",
+      "title": "Bienvenido a Jardines-Perfectos",
+      "description": "El mejor jardin!",
+      "phone": "+56 9 1234 1111",
+      "email": "jardin@laflorida.cl",
+      "communities": ["mercado-comunidad"]
+  
+    }
+  ]
+}
