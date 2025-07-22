@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ProductList from './components/ProductList';
 import TermsModal from './components/TermsModal';
-import StoresPage from './pages/StoresPage';
+import StoresPage from './pages/stores/StoresPage';
 import BlogPage from './pages/BlogPage';
 import BlogDetailPage from './pages/BlogDetailPage';
 import ProductPage from './pages/ProductPage';
@@ -15,6 +15,7 @@ import config from './config';
 import productData from './data/products.json';
 import communityData from './data/community.json';
 import storeData from './data/stores.json';
+import ProductListPage from './pages/stores/products/ProductListPage';
 
 function HomePage() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -104,9 +105,9 @@ function HomePage() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 flex-grow">
         {store ? (
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">{store.title}</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">{store.Name}</h2>
             <p className="max-w-2xl mx-auto text-gray-600">
-              {store.description}
+              {store.DNI}
             </p>
           </div>
         ) : community && (
@@ -160,6 +161,8 @@ function App() {
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:id" element={<BlogDetailPage />} />
         <Route path="/product/:id" element={<ProductPage />} />
+        <Route path="/product/:id" element={<ProductPage />} />
+        <Route path="/stores/:id/products" element={<ProductListPage />} />
       </Routes>
     </Router>
   );

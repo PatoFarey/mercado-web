@@ -5,7 +5,7 @@ import { Community } from '../types/community';
 import { useNavigate } from 'react-router-dom';
 
 interface HeaderProps {
-  community: Community | null;
+  community: Community | null | undefined;
 }
 
 const Header: React.FC<HeaderProps> = ({ community }) => {

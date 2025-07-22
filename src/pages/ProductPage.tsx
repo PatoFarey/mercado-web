@@ -1,19 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Store, Facebook, Instagram, MessageCircle, ArrowLeft } from 'lucide-react';
+import { Store, Facebook, Instagram, MessageCircle, ArrowLeft, Loader2, Package } from 'lucide-react';
+import axios from 'axios';
 import Header from '../components/Header';
 import ImageCarousel from '../components/ImageCarousel';
-import { Product } from '../types/product';
-import productData from '../data/products.json';
 import communityData from '../data/community.json';
+import config from '../config';
 import Swal from 'sweetalert2';
+
+interface Product {
+  _id: string;
+  title: string;
+  description: string;
+  longDescription: string;
+  price: number;
+  categoria: string;
+  phone: string;
+  storeName: string;
+  storeDNI: string;
+  storeLogo: string;
+  facebookLink: string;
+  instagramLink: string;
+  images: string[];
+}
 
 const ProductPage: React.FC = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  
-  // Find the product
-  const product = productData.products.find(p => p.id.toString() === id);
+  const [product, setProduct] = useState<Product | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   
   // Get community data for header
   const params = new URLSearchParams(window.location.search);
@@ -34,20 +50,56 @@ const ProductPage: React.FC = () => {
     return `https://wa.me/${formattedPhone}?text=${message}`;
   };
 
+  const fetchProduct = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+
+      const headers = {
+        Authorization: `Bearer ${config.PUBLIC_TOKEN}`,
+      };
+
+      const response = await axios.get(
+        `${config.API_URL}/public/products/${id}`,
+        { headers }
+      );
+      console.log(response.data)
+      setProduct(response.data);
+    } catch (err: any) {
+      console.error("Error cargando producto:", err);
+      if (err.response?.status === 404) {
+        setError('Producto no encontrado');
+      } else {
+        setError(err.response?.data?.error || 'Error al cargar el producto');
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (id) {
+      fetchProduct();
+    }
+  }, [id]);
+
   const handleStoreClick = () => {
-    const currentUrl = new URL(window.location.href);
-    currentUrl.searchParams.set('tienda', product!.id_store);
-    currentUrl.searchParams.set('comunidad', communityId);
-    navigate(`/?${currentUrl.searchParams.toString()}`);
+    if (product?.storeDNI) {
+      const currentUrl = new URL(window.location.href);
+      currentUrl.searchParams.set('comunidad', communityId);
+      navigate(`/stores/${product.storeDNI}/products?${currentUrl.searchParams.toString()}`);
+    }
   };
 
   const handleContactClick = () => {
+    if (!product) return;
+    
     Swal.fire({
       title: 'Información de Contacto',
       html: `
         <div class="text-left">
-          ${product!.phone ? `<p class="mb-2"><strong>Teléfono:</strong> ${product!.phone}</p>` : ''}
-          <p><strong>Email:</strong> ${product!.email}</p>
+          ${product.phone ? `<p class="mb-2"><strong>Teléfono:</strong> ${product.phone}</p>` : ''}
+          ${product.storeName ? `<p class="mb-2"><strong>Tienda:</strong> ${product.storeName}</p>` : ''}
         </div>
       `,
       icon: 'info',
@@ -60,17 +112,39 @@ const ProductPage: React.FC = () => {
     navigate(-1);
   };
 
-  if (!product) {
+  if (loading) {
     return (
       <div className="min-h-screen bg-gray-50 flex flex-col">
         <Header community={community} />
         <main className="flex-grow flex items-center justify-center">
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Producto no encontrado</h2>
-            <p className="text-gray-600">El producto que buscas no existe.</p>
+            <Loader2 className="w-12 h-12 animate-spin text-blue-600 mx-auto mb-4" />
+            <p className="text-gray-600 text-lg">Cargando producto...</p>
+          </div>
+        </main>
+      </div>
+    );
+  }
+
+  if (error || !product) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex flex-col">
+        <Header community={community} />
+        <main className="flex-grow flex items-center justify-center">
+          <div className="text-center">
+            <Package className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              {error || 'Producto no encontrado'}
+            </h2>
+            <p className="text-gray-600 mb-6">
+              {error === 'Producto no encontrado' 
+                ? 'El producto que buscas no existe o no está disponible.'
+                : 'Ha ocurrido un error al cargar el producto.'
+              }
+            </p>
             <button
               onClick={handleBack}
-              className="mt-4 inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
               Volver
@@ -99,31 +173,48 @@ const ProductPage: React.FC = () => {
             {/* Image Section */}
             <div className="relative bg-gray-50">
               <div className="aspect-square">
-                <ImageCarousel images={product.images} />
+                {product.images && product.images.length > 0 ? (
+                  <ImageCarousel images={product.images} />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-gray-100">
+                    <Package className="w-20 h-20 text-gray-300" />
+                  </div>
+                )}
               </div>
             </div>
             
             {/* Product Details Section */}
             <div className="p-8 lg:p-12">
               {/* Store Info */}
-              <div className="flex items-center gap-4 mb-8 pb-6 border-b border-gray-100">
-                <img 
-                  src={product.storeLogo}
-                  alt={product.storeName}
-                  className="w-16 h-16 rounded-full object-cover border-2 border-gray-200"
-                />
-                <div>
-                  <h3 
-                    className="text-xl font-bold text-gray-900 hover:text-blue-600 cursor-pointer transition-colors"
-                    onClick={handleStoreClick}
-                  >
-                    {product.storeName}
-                  </h3>
-                  <span className="inline-block px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800 mt-1">
-                    {product.categoria}
-                  </span>
+              {(product.storeName || product.storeLogo || product.categoria) && (
+                <div className="flex items-center gap-4 mb-8 pb-6 border-b border-gray-100">
+                  {product.storeLogo && (
+                    <img 
+                      src={product.storeLogo}
+                      alt={product.storeName || 'Tienda'}
+                      className="w-16 h-16 rounded-full object-cover border-2 border-gray-200"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                      }}
+                    />
+                  )}
+                  <div>
+                    {product.storeName && (
+                      <h3 
+                        className="text-xl font-bold text-gray-900 hover:text-blue-600 cursor-pointer transition-colors"
+                        onClick={handleStoreClick}
+                      >
+                        {product.storeName}
+                      </h3>
+                    )}
+                    {product.categoria && (
+                      <span className="inline-block px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800 mt-1">
+                        {product.categoria}
+                      </span>
+                    )}
+                  </div>
                 </div>
-              </div>
+              )}
 
               {/* Product Title */}
               <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight">
@@ -141,7 +232,7 @@ const ProductPage: React.FC = () => {
               <div className="mb-8">
                 <h3 className="text-lg font-semibold text-gray-800 mb-3">Descripción</h3>
                 <p className="text-gray-600 leading-relaxed text-lg">
-                  {product.longDescription}
+                  {product.longDescription || product.description}
                 </p>
               </div>
               
@@ -155,14 +246,16 @@ const ProductPage: React.FC = () => {
                 </button>
                 
                 <div className="flex justify-center gap-6 pt-4">
-                  <button
-                    onClick={handleStoreClick}
-                    className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors group"
-                    title="Ver tienda"
-                  >
-                    <Store size={24} className="group-hover:scale-110 transition-transform" />
-                    <span className="font-medium">Ver tienda</span>
-                  </button>
+                  {product.storeName && (
+                    <button
+                      onClick={handleStoreClick}
+                      className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors group"
+                      title="Ver tienda"
+                    >
+                      <Store size={24} className="group-hover:scale-110 transition-transform" />
+                      <span className="font-medium">Ver tienda</span>
+                    </button>
+                  )}
                   
                   {product.phone && (
                     <a 

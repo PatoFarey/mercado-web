@@ -7,7 +7,7 @@ import storeData from '../data/stores.json';
 interface ContactModalProps {
   isOpen: boolean;
   onClose: () => void;
-  community: Community | null;
+  community: Community | null | undefined;
 }
 
 const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, community }) => {
@@ -18,7 +18,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, community 
   const storeId = params.get('tienda');
 
   // Find store data
-  const store = storeId ? storeData.stores.find((s: Store) => s.id === storeId) : null;
+  const store = storeId ? storeData.stores.find((s: Store) => s.id == storeId) : null;
 
   // Determine which data to show
   const contactData = store || community;
@@ -26,7 +26,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, community 
 
   return (
     <>
-      <div 
+      <div
         className="fixed inset-0 bg-black bg-opacity-50 z-40"
         onClick={onClose}
       />
@@ -40,16 +40,16 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, community 
             >
               <X className="h-6 w-6 text-gray-500" />
             </button>
-            
+
             <div className="p-6">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Información de Contacto</h2>
-              
+
               <div className="space-y-6 text-gray-600">
                 <section>
                   <h3 className="text-lg font-semibold text-gray-800 mb-2">Contacto {contactType}</h3>
                   <p>
                     Para comunicarte con {contactType.toLowerCase() === 'tienda' ? 'esta tienda' : 'el administrador de esta comunidad'}, envía un correo a{' '}
-                    <a 
+                    <a
                       href={`mailto:${contactData?.email}`}
                       className="text-blue-600 hover:text-blue-800 transition-colors"
                     >
@@ -62,7 +62,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, community 
                   <h3 className="text-lg font-semibold text-gray-800 mb-2">Contacto MercadoComunidad</h3>
                   <p>
                     Para consultas o problemas relacionados con el uso de la plataforma, envía un correo a{' '}
-                    <a 
+                    <a
                       href="mailto:contacto@mercadocomunidad.cl"
                       className="text-blue-600 hover:text-blue-800 transition-colors"
                     >
