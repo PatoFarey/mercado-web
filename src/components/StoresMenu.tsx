@@ -35,15 +35,15 @@ const StoresMenu: React.FC<StoresMenuProps> = ({ stores, selectedStore }) => {
         </button>
         {stores.map((store) => (
           <button
-            key={store.id}
+            key={store.ID}
             className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-              selectedStore === store.id 
+              selectedStore === store.ID 
                 ? 'bg-blue-600 text-white' 
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
             }`}
-            onClick={() => handleStoreClick(store.id)}
+            onClick={() => handleStoreClick(store.ID)}
           >
-            {store.name}
+            {store.Name}
           </button>
         ))}
       </div>

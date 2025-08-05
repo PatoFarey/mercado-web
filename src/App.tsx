@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ProductList from './components/ProductList';
 import TermsModal from './components/TermsModal';
@@ -16,6 +15,7 @@ import productData from './data/products.json';
 import communityData from './data/community.json';
 import storeData from './data/stores.json';
 import ProductListPage from './pages/stores/products/ProductListPage';
+import CommunitiesPage from './pages/CommunitiesPage';
 
 function HomePage() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -103,22 +103,9 @@ function HomePage() {
       <Header community={community} />
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 flex-grow">
-        {store ? (
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">{store.Name}</h2>
-            <p className="max-w-2xl mx-auto text-gray-600">
-              {store.DNI}
-            </p>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Bienvenido a MercadoComunidad</h2>
           </div>
-        ) : community && (
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">{community.title}</h2>
-            <p className="max-w-2xl mx-auto text-gray-600">
-              {community.description}
-            </p>
-          </div>
-        )}
-        
         {loading ? (
           <div className="flex justify-center items-center h-64">
             <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-600"></div>
@@ -157,10 +144,10 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/communities" element={<CommunitiesPage />} />
         <Route path="/stores" element={<StoresPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:id" element={<BlogDetailPage />} />
-        <Route path="/product/:id" element={<ProductPage />} />
         <Route path="/product/:id" element={<ProductPage />} />
         <Route path="/stores/:id/products" element={<ProductListPage />} />
       </Routes>

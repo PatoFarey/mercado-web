@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShoppingBag, Store, BookOpen } from 'lucide-react';
+import { ShoppingBag, Users, BookOpen } from 'lucide-react';
 import ContactModal from './ContactModal';
 import { Community } from '../types/community';
 import { useNavigate } from 'react-router-dom';
@@ -12,17 +12,15 @@ const Header: React.FC<HeaderProps> = ({ community }) => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const navigate = useNavigate();
 
-  const handleStoresClick = () => {
-    const currentUrl = new URL(window.location.href);
-    const communityId = currentUrl.searchParams.get('comunidad') || 'mercado-comunidad';
-    navigate(`/stores?comunidad=${communityId}`);
+  const handleCommunitiesClick = () => {
+    navigate('/communities');
   };
 
   const handleBlogClick = () => {
     navigate('/blog');
   };
 
-  const showStoresButton = () => {
+  const showCommunitiesButton = () => {
     const currentUrl = new URL(window.location.href);
     const storeId = currentUrl.searchParams.get('tienda');
     return !storeId;
@@ -37,24 +35,29 @@ const Header: React.FC<HeaderProps> = ({ community }) => {
             <h1 className="text-xl font-bold text-gray-800">MercadoComunidad</h1>
           </div>
           <nav className="hidden md:flex space-x-8">
-            <a href="/" className="text-gray-600 hover:text-blue-600 transition-colors">Inicio</a>
-            {showStoresButton() && (
-              <button 
-                onClick={handleStoresClick}
+            <button
+              onClick={() => navigate('/')}
+              className="text-gray-600 hover:text-blue-600 transition-colors"
+            >
+              Inicio
+            </button>
+            {showCommunitiesButton() && (
+              <button
+                onClick={handleCommunitiesClick}
                 className="text-gray-600 hover:text-blue-600 transition-colors flex items-center gap-2"
               >
-                <Store className="h-5 w-5" />
-                <span>Tiendas</span>
+                <Users className="h-5 w-5" />
+                <span>Comunidades</span>
               </button>
             )}
-            <button 
+            <button
               onClick={handleBlogClick}
               className="text-gray-600 hover:text-blue-600 transition-colors flex items-center gap-2"
             >
               <BookOpen className="h-5 w-5" />
               <span>Blog</span>
             </button>
-            <button 
+            <button
               onClick={() => setIsContactModalOpen(true)}
               className="text-gray-600 hover:text-blue-600 transition-colors"
             >
@@ -63,8 +66,7 @@ const Header: React.FC<HeaderProps> = ({ community }) => {
           </nav>
         </div>
       </header>
-
-      <ContactModal 
+      <ContactModal
         isOpen={isContactModalOpen}
         onClose={() => setIsContactModalOpen(false)}
         community={community}

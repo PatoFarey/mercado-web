@@ -67,7 +67,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     >
       <div className="absolute top-4 left-4 z-10">
         <img 
-          src={product.storeLogo} 
+          onClick={(e) => {e.stopPropagation(); navigate(`/stores/${product.storeLink}/products`);}}
+          src={product.storeLogo}
           alt={product.storeName}
           className="w-12 h-12 rounded-full border-2 border-white shadow-lg object-cover"
         />

@@ -5,4 +5,5 @@ export interface Community {
   description?: string;
   phone?: string;
   email?: string;
+  open?: boolean;
 }

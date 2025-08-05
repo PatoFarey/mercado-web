@@ -1,4 +1,6 @@
 export interface Product {
+  storeLink: any;
+  email: any;
   id: number;
   title: string;
   description: string;
